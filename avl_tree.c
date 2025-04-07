@@ -1,3 +1,4 @@
+// Run with clang -Wall avl_tree.c -o avl
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -264,6 +265,20 @@ int main()
     } 
     printTreeInfo(root);
 
+    printf("Enter one more number: ");
+    scanf("%d", &nodes[nodeCount]);
+    printf("---------------------------------------------------------------\n");
+    root = insert(root, nodes[nodeCount]);
+    nodeCount++;
+    printTreeInfo(root);
+
+    printf("Enter one last number: ");
+    scanf("%d", &nodes[nodeCount]);
+    printf("---------------------------------------------------------------\n");
+    root = insert(root, nodes[nodeCount]);
+    nodeCount++;
+    printTreeInfo(root);
+
     printf("The tree contains: ");
     for (int i = 0; i < nodeCount; i++){
         printf("%d ", nodes[i]);
@@ -277,20 +292,6 @@ int main()
     printf("---------------------------------------------------------------\n");
     root = deleteNode(root, numToDelete);   
     nodeCount--;
-    printTreeInfo(root);
-
-    printf("Enter one more number: ");
-    scanf("%d", &nodes[nodeCount]);
-    printf("---------------------------------------------------------------\n");
-    root = insert(root, nodes[nodeCount]);
-    nodeCount++;
-    printTreeInfo(root);
-
-    printf("Enter one last number: ");
-    scanf("%d", &nodes[nodeCount]);
-    printf("---------------------------------------------------------------\n");
-    root = insert(root, nodes[nodeCount]);
-    nodeCount++;
     printTreeInfo(root);
 
     freeTree(root);
